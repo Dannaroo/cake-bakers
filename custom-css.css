@@ -1,0 +1,51 @@
+h1 {
+  font-family: "Book Antiqua";
+  color: #f1ddcf;
+  border-bottom: 1px black dashed;
+  text-align: center;
+  text-shadow: black 2px 2px;
+}
+
+.jumbotron span {
+  font-weight: 550;
+  background-color: rgba(241, 221, 207, 0.55);
+  border-radius: 25%;
+  padding: 5px;
+  box-shadow: black 2px 3px;
+  border: black solid 1px;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  background-image: url("img/cake-icon.svg");
+  background-size: 132px;
+  background-color: #89CFF0;
+  display: none;
+}
+.carousel-inner h5 {
+  display: inline;
+  background-color: rgba(241, 221, 207, 0.8);
+  padding: 5px;
+  border-radius: 25%;
+  color: black;
+  box-shadow: black 1px 2px;
+  border: black solid 1px;
+}
+
+@media (min-width: 576px){
+  div .card-deck,
+  div .card {
+    flex: 1 0 50%;
+  }
+}
+
+@media (min-width: 992px){
+
+  .jumbotron {
+    display: block;
+  }
+
+  .navbar-brand {
+    display: none;
+  }
+}
