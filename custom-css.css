@@ -3,7 +3,11 @@ h1 {
   color: #f1ddcf;
   border-bottom: 1px black dashed;
   text-align: center;
-  text-shadow: black 2px 2px;
+  text-shadow: black 4px 4px;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .jumbotron span {
@@ -32,6 +36,9 @@ h1 {
   border: black solid 1px;
 }
 
+.card-body {
+  /* height: 240px; */
+}
 @media (min-width: 576px){
   div .card-deck,
   div .card {
