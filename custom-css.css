@@ -39,6 +39,29 @@ ul {
 .card-body {
   /* height: 240px; */
 }
+
+.contact-form {
+  border: 1px solid darkgrey;
+  padding: 15px;
+  box-shadow: -5px 5px 8px darkgrey;
+  border-radius: 5px;
+}
+
+#about-image {
+  max-width: 350px;
+  border: darkgrey 1px solid;
+  border-radius: 5px;
+  box-shadow: -5px 5px 8px darkgrey;
+}
+
+.card {
+  box-shadow: 2px 2px 5px darkgrey;
+}
+
+.footer {
+  background-color: lightgrey;
+}
+
 @media (min-width: 576px){
   div .card-deck,
   div .card {
