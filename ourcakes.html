@@ -28,11 +28,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#top.html">Our Cakes</a>
+            <a class="nav-link active" href="#top.html">Our Cakes <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="customcakes.html">Custom Cakes</a>
@@ -60,154 +60,199 @@
       </p>
      </div><!-- /Welcome Message  -->
 
+     <!-- Sort Form -->
      <div class="container">
+       <button class="btn btn-info" type="submit" id="alphBnt">Sort A-Z</button>
+       <button class="btn btn-info" type="submit" id="reverseAlphBnt">Sort Z-A</button>
+       <button class="btn btn-info" type="submit" id="priceAscend">Price Ascending</button>
+       <button class="btn btn-info" type="submit" id="priceDescend">Price Descending</button>
+     </div>
+     <!-- <button id="alphBnt">Sort A-Z</button>
+     <button id="reverseAlphBnt">Sort Z-A</button> -->
+     <!-- /Sort Form -->
+
+
+     <!-- List -->
+     <div class="container" id="bin">
        <div class="card-deck">
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake5.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Everyday Cake 1</h5>
+               <h5 class="card-title">D</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$10.50</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake6.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Everyday Cake 2</h5>
+               <h5 class="card-title">C</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$14.10</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake7.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Everyday Cake 3</h5>
+               <h5 class="card-title">B</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$16.00</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake8.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Everyday Cake 4</h5>
+               <h5 class="card-title"> A</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$42.00</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake5.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Indulgent Cake 1</h5>
+               <h5 class="card-title">E</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$29.10</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake6.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Indulgent Cake 2</h5>
+               <h5 class="card-title">F</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$37.60</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake7.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Indulgent Cake 3</h5>
+               <h5 class="card-title">H</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$18.90</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake8.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Indulgent Cake 4</h5>
+               <h5 class="card-title">G</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$9.00</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake5.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Birthday Cake 1</h5>
+               <h5 class="card-title">K</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$47.80</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake6.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Birthday Cake 2</h5>
+               <h5 class="card-title">I</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$22.40</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake7.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Birthday Cake 3</h5>
+               <h5 class="card-title">J</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$19.20</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake8.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Birthday Cake 4</h5>
+               <h5 class="card-title">L</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$88.50</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake5.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Wedding Cake 1</h5>
+               <h5 class="card-title">M</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$61.00</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake6.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Wedding Cake 2</h5>
+               <h5 class="card-title">O</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$59.90</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake7.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Wedding Cake 3</h5>
+               <h5 class="card-title">N</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$12.10</a>
              </div>
            </div>
          </div>
          <div class="col-sm-6 col-lg-3">
-           <div class="card mb-3 mx-0">
+           <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake8.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">Wedding Cake 4</h5>
+               <h5 class="card-title">Z</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
+               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-secondary float-left disabled">$42.00</a>
              </div>
            </div>
          </div>
        </div>
-     </div>
+     </div><!-- /List -->
 
    </main>
 
@@ -241,5 +286,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
