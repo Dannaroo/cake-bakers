@@ -45,8 +45,8 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Find A Cake" aria-label="Search">
-          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Go</button>
+          <input class="form-control mr-sm-2" type="textarea" placeholder="Find A Cake" aria-label="Search" id="searchTerm">
+          <a class="btn btn-outline-info my-2 my-sm-0" href="ourcakes.html#sortform" id="submitSearch">Go</a>
         </form>
       </div>
    </nav> <!-- /Navbar  -->
@@ -61,11 +61,14 @@
      </div><!-- /Welcome Message  -->
 
      <!-- Sort Form -->
-     <div class="container">
-       <button class="btn btn-info" type="submit" id="alphBnt">Sort A-Z</button>
-       <button class="btn btn-info" type="submit" id="reverseAlphBnt">Sort Z-A</button>
-       <button class="btn btn-info" type="submit" id="priceAscend">Price Ascending</button>
-       <button class="btn btn-info" type="submit" id="priceDescend">Price Descending</button>
+     <div class="container" id="sortform">
+       <div class="my-4 border border-info rounded bg-light p-3 shadow d-flex justify-content-around">
+         <button class="btn btn-info m-1" type="submit" id="alphBnt">Sort A-Z</button>
+         <button class="btn btn-info m-1" type="submit" id="reverseAlphBnt">Sort Z-A</button>
+         <button class="btn btn-info m-1" type="submit" id="priceAscend">Price Ascending</button>
+         <button class="btn btn-info m-1" type="submit" id="priceDescend">Price Descending</button>
+         <button class="btn btn-info m-1" type="submit" id="clear">Clear Search</button>
+      </div>
      </div>
      <!-- <button id="alphBnt">Sort A-Z</button>
      <button id="reverseAlphBnt">Sort Z-A</button> -->
@@ -123,7 +126,7 @@
            <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake5.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">E</h5>
+               <h5 class="card-title">Hockey</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
                <a href="#" class="btn btn-info float-right">Order Now</a>
                <a href="#" class="btn btn-secondary float-left disabled">29.10</a>
@@ -134,7 +137,7 @@
            <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake6.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">F</h5>
+               <h5 class="card-title">Ice Hockey</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
                <a href="#" class="btn btn-info float-right">Order Now</a>
                <a href="#" class="btn btn-secondary float-left disabled">37.60</a>

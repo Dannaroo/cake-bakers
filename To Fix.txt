@@ -1,7 +1,10 @@
 -Card Heights should be matching.- cannot be done while website remains responsive as per Bootstrap
 -Carousel buttons are not displaying- fixed
 -fixed navbar disappears halfway down page.-fixed (unnecesary closing div tag)
--create ourcakes form sortation.
--create customcakes form. Done!!!
--create operational search bar.
+-create ourcakes form sortation. Done
+-create customcakes form. Done
+-create operational search bar.- done in form-sorter. done in our-cakes.
+-create partial string search bar.-done.
+-make search form work across all pages.
+-make title appear after nav becomes fixed.
 

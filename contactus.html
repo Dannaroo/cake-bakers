@@ -45,20 +45,72 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Find A Cake" aria-label="Search">
-          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Go</button>
+          <input class="form-control mr-sm-2" type="search" placeholder="Find A Cake" aria-label="Search" id="searchTerm">
+          <a class="btn btn-outline-info my-2 my-sm-0" href="ourcakes.html#sortform" id="submitSearch">Go</a>
         </form>
       </div>
    </nav> <!-- /Navbar  -->
 
    <main>
-     <!-- Welcome Message -->
      <div class="container">
-       <h2 class="display-4 text-center my-5 text-muted">Contact Us</h2>
-       <p>
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean interdum velit dui, a elementum nulla convallis vitae. Vivamus vitae dui at enim semper varius eu at erat. Vestibulum feugiat ut risus ac tempus. Donec scelerisque a leo vitae gravida. Sed maximus laoreet turpis, at ornare justo ornare interdum. Aenean viverra est in nulla hendrerit, in rhoncus dui suscipit. Ut volutpat ornare blandit. Aenean vitae volutpat velit. Nunc tincidunt dignissim lacus vel accumsan. Ut lacinia ante non arcu efficitur ultricies. Morbi laoreet orci in est molestie facilisis. Nulla placerat augue in efficitur tempus. Vestibulum pharetra magna ut gravida ullamcorper.
-      </p>
-     </div><!-- /Welcome Message  -->
+       <h2 class="display-4 text-center my-5 text-muted">Contact</h2>
+       <p>Please contact us by phone or email, or use the contact form below and we will get back to you as soon as possible.</p>
+       <ul>
+         <li><strong>Phone:</strong> 555-5421-432</li>
+         <li><strong>Email:</strong> info@cakebakers.com.au</li>
+       </ul>
+       <form class="contact-form m-5">
+         <div class="form-group">
+           <label for="subject">Subject</label>
+           <input type="text" class="form-control form-control-sm ml-sm-2" id="subject" placeholder="">
+         </div>
+         <div class="row">
+           <div class="form-group form-inline col-auto">
+             <label for="name">Name</label>
+             <input type="text" class="form-control form-control-sm ml-sm-2" id="name" placeholder="">
+           </div>
+           <fieldset class="form-group col-auto">
+               <legend class="col-form-label pt-0 col">Preferred Contact Method</legend>
+                 <div class="form-check form-check-inline ml-3">
+                   <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                   <label class="form-check-label" for="gridRadios1">
+                     Phone
+                   </label>
+                 </div>
+                 <div class="form-check form-check-inline">
+                   <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                   <label class="form-check-label" for="gridRadios2">
+                     Email
+                   </label>
+                 </div>
+           </fieldset>
+         </div>
+         <div class="row">
+           <div class="form-group form-inline col-auto">
+             <label for="subject">Phone</label>
+             <input type="text" class="form-control form-control-sm mx-sm-2" id="phone" placeholder="">
+           </div>
+           <div class="form-group form-inline col-auto">
+             <label for="subject">Email</label>
+             <input type="email" class="form-control form-control-sm mx-sm-2" id="email" placeholder="">
+           </div>
+         </div>
+         <div class="form-group">
+           <label for="message">Message</label>
+           <textarea class="form-control form-control-sm mx-sm-2" id="message" rows="3"></textarea>
+         </div>
+         <div class="form-group form-inline">
+           <label for="info">What would you like more information about?</label>
+         <select class="form-control form-control-sm mx-sm-2" id="info">
+           <option> </option>
+           <option>Opening a wholesale account to supply your cafe or business</option>
+           <option>Info on delivery areas we cover or delivery rates</option>
+           <option>Advance notification of our special products or offers</option>
+           </select>
+           </div>
+           <button type="submit" class="btn btn-info my-1">Submit</button>
+         </div>
+       </form>
 
    </main>
 
