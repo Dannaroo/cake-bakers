@@ -4,7 +4,7 @@ const search = document.getElementById('searchTerm');
 const submitButton = document.querySelector('#submitSearch');
 const list = document.querySelectorAll('#bin h5');
 const clearButton = document.querySelector('#clear');
-
+const navbarBrand = document.querySelector('.navbar-brand');
 
 //Remove dollar sign for sorting purposes
 function removeDollarSign(a) {
@@ -85,7 +85,7 @@ $('#priceDescend').on('click', function () {
   });
 });
 
-//Operate search bar function
+//Operate search bar function ON-PAGE
 submitButton.addEventListener('click', () => {
   for (i = 0; i < list.length; i += 1) {
     let title = list[i].innerHTML;
@@ -98,11 +98,43 @@ submitButton.addEventListener('click', () => {
   search.value = "";
 });
 
+//Operate search bar function OFF-PAGE
+const alternateSearchTerm = location.search.substr(location.search.indexOf("=")+1);
+if (alternateSearchTerm) {
+  console.log("success!");
+  for (i = 0; i < list.length; i += 1) {
+    console.log("success! x2");
+    let title = list[i].innerHTML;
+    if ( title.toLowerCase().includes(alternateSearchTerm.toLowerCase()) ) {
+      list[i].parentNode.parentNode.parentNode.style.display="block";
+      console.log("if");
+    } else {
+      list[i].parentNode.parentNode.parentNode.style.display="none";
+      console.log("else");
+    }
+  }
+  search.value = alternateSearchTerm;
+};
+
 //Operate clear search button
 clearButton.addEventListener('click', () => {
   for (i = 0; i < list.length; i += 1) {
-    if (list[i].parentNode.style.display="none") {
-      list[i].parentNode.style.display="block";
+    if (list[i].parentNode.parentNode.parentNode.style.display="none") {
+      list[i].parentNode.parentNode.parentNode.style.display="block";
     }
   }
 });
+
+//Scrolling past Jumbotron adds title to navbar in WIDE SCREEN.
+function navbarTitle() {
+  if (window.matchMedia("(min-width: 992px)").matches) {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        navbarBrand.style.display = "block";
+      } else {
+        navbarBrand.style.display = "none";
+    }
+    } else {
+      navbarBrand.style.display = "block";
+  }
+}
+window.onscroll = function() {navbarTitle()};

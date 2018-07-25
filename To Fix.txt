@@ -7,4 +7,5 @@
 -create partial string search bar.-done.
 -make search form work across all pages.
 -make title appear after nav becomes fixed.
+-add order now button functionality.
 
