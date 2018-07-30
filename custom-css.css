@@ -78,4 +78,12 @@ ul {
   .navbar-brand {
     display: none;
   }
+/* fix gap in bootstrap media breakpoints so price and 'order now button appear on same line' */
+  .col-sm-6 {
+    min-width: 270px;
+  }
+
+  .card-deck {
+    justify-content: space-evenly;
+  }
 }

@@ -106,7 +106,7 @@
              <div class="card-body">
                <h5 class="card-title">B</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
-               <a href="#" class="btn btn-info float-right">Order Now</a>
+               <a href="#" class="btn btn-info float-right" data-toggle="modal" data-target="#orderModal">Order Now</a>
                <a href="#" class="btn btn-secondary float-left disabled">16.00</a>
              </div>
            </div>
@@ -283,6 +283,60 @@
        </div>
      </div>
    </footer><!-- /footer -->
+
+   <!-- Modal -->
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="order details" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Order Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <span class="col m-1">Product</span>
+            <span class="col m-1">Size</span>
+            <span class="col m-1">Quantity</span>
+            <span class="col m-1">Cost</span>
+            <span class="col m-1"></span>
+          </div><!-- end first row -->
+          <div class="row">
+            <span class="col m-2">B</span>
+            <select class="form-control-sm col m-1">
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+              <option>Extra Large</option>
+              <option>Gigantic</option>
+            </select>
+            <select class="form-control-sm col m-1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+              <span class="col m-1" placeholder="Cost" id="modalCost">$10.50</span>
+            <button type="button" class="btn btn-secondary col m-1" id="addSizes">Add to Cart</button>
+          </div><!-- end second row -->
+          <button type="button" class="btn btn-secondary m-1" id="addSizes">Order Additional Sizes</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+        <button type="button" class="btn btn-primary">Proceed to Check Out</button>
+      </div>
+    </div>
+  </div>
+</div> <!-- /modal -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

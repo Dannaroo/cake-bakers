@@ -5,7 +5,16 @@
 -create customcakes form. Done
 -create operational search bar.- done in form-sorter. done in our-cakes.
 -create partial string search bar.-done.
--make search form work across all pages.
--make title appear after nav becomes fixed.
+-make search form work across all pages. -DONE
+-make title appear after nav becomes fixed. - DONE
 -add order now button functionality.
 
+ON CONQUER:
+-add scroll effects on link click.- DONE
+-add fade in and out highlight on mouseover of links
+- add fade in and out of return to top arrow. -DONE
+-navbar links different sizes
+-navbar button spacing
+-return to top arrow fades in/out in wrong spot.
+-highlight nav links based on which section of page you are on.-DONE
+-on navlink click. navbar link does not stay highlighted.

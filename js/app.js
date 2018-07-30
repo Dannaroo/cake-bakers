@@ -5,6 +5,16 @@ const submitButton = document.querySelector('#submitSearch');
 const list = document.querySelectorAll('#bin h5');
 const clearButton = document.querySelector('#clear');
 const navbarBrand = document.querySelector('.navbar-brand');
+let cakes = [];
+
+//add each cake property to an object and attach object to cakes array.
+for (i = 0; i < list.length; i +=1) {
+  let cakesElement = {};
+  cakesElement.name = list[i].innerHTML;
+  cakesElement.price = priceTag[i].innerHTML;
+  cakes.push(cakesElement);
+}
+console.log(cakes);
 
 //Remove dollar sign for sorting purposes
 function removeDollarSign(a) {
