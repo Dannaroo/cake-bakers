@@ -14,7 +14,7 @@ let modalCost = document.querySelector('#modalCost');
 let modalTitle = document.querySelector('#modalTitle');
 const orderNowButtons = bin.querySelectorAll('a.btn-info.float-right');
 const continueShoppingButton = document.querySelector('#continueShoppingButton');
-
+const closeModalButton = document.querySelector('#closeModalButton');
 //add each cake property to an object and attach object to cakes array.
 for (i = 0; i < list.length; i +=1) {
   let cakesElement = {};
@@ -85,6 +85,9 @@ $('#priceAscend').on('click', function () {
         return (dsa > dsb ? 1 : (dsa < dsb) ? -1 : 0);
       })
     );
+    for (let i = 0; i < priceTag.length; i += 1 ) {
+      attachDollarSign(priceTag[i]);
+    }
   });
 });
 
@@ -103,6 +106,9 @@ $('#priceDescend').on('click', function () {
         return (dsa > dsb ? -1 : (dsa < dsb) ? 1 : 0);
       })
     );
+    for (let i = 0; i < priceTag.length; i += 1 ) {
+      attachDollarSign(priceTag[i]);
+    }
   });
 });
 
@@ -185,6 +191,11 @@ modalSizeSelector.addEventListener('change', () => {
 
 //MODAL: Reset Price and Select option on click of 'continue shopping'
 continueShoppingButton.addEventListener('click', () => {
+  modalCost.innerHTML = "";
+  modalSizeSelector.selectedIndex = "Select Price";
+});
+
+closeModalButton.addEventListener('click', () => {
   modalCost.innerHTML = "";
   modalSizeSelector.selectedIndex = "Select Price";
 });
