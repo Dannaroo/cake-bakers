@@ -6,15 +6,26 @@ const list = document.querySelectorAll('#bin h5');
 const clearButton = document.querySelector('#clear');
 const navbarBrand = document.querySelector('.navbar-brand');
 let cakes = [];
+const modalSizeSelector = document.querySelector('#modalSizeSelector');
+const modalSizes = modalSizeSelector.children;
+const bin = document.querySelector('#bin');
+const cardBodies = bin.querySelectorAll('.card-body');
+let modalCost = document.querySelector('#modalCost');
+let modalTitle = document.querySelector('#modalTitle');
+const orderNowButtons = bin.querySelectorAll('a.btn-info.float-right');
+const continueShoppingButton = document.querySelector('#continueShoppingButton');
 
 //add each cake property to an object and attach object to cakes array.
 for (i = 0; i < list.length; i +=1) {
   let cakesElement = {};
   cakesElement.name = list[i].innerHTML;
-  cakesElement.price = priceTag[i].innerHTML;
+  cakesElement.price = "$" + parseFloat(priceTag[i].innerHTML).toFixed(2);
+  cakesElement.mediumPrice = "$" + parseFloat(priceTag[i].innerHTML * 2).toFixed(2),
+  cakesElement.largePrice = "$" + parseFloat(priceTag[i].innerHTML * 2.9).toFixed(2),
+  cakesElement.extraLargePrice = "$" + parseFloat(priceTag[i].innerHTML * 3.8).toFixed(2),
+  cakesElement.giganticPrice = "$" + parseFloat(priceTag[i].innerHTML * 7.7).toFixed(2)
   cakes.push(cakesElement);
 }
-console.log(cakes);
 
 //Remove dollar sign for sorting purposes
 function removeDollarSign(a) {
@@ -111,16 +122,12 @@ submitButton.addEventListener('click', () => {
 //Operate search bar function OFF-PAGE
 const alternateSearchTerm = location.search.substr(location.search.indexOf("=")+1);
 if (alternateSearchTerm) {
-  console.log("success!");
   for (i = 0; i < list.length; i += 1) {
-    console.log("success! x2");
     let title = list[i].innerHTML;
     if ( title.toLowerCase().includes(alternateSearchTerm.toLowerCase()) ) {
       list[i].parentNode.parentNode.parentNode.style.display="block";
-      console.log("if");
     } else {
       list[i].parentNode.parentNode.parentNode.style.display="none";
-      console.log("else");
     }
   }
   search.value = alternateSearchTerm;
@@ -148,3 +155,36 @@ function navbarTitle() {
   }
 }
 window.onscroll = function() {navbarTitle()};
+
+//MODAL: Input correct Modal product title based on which 'order now'
+//       button is clicked.
+for (let i = 0; i < cardBodies.length; i += 1) {
+    orderNowButtons[i].addEventListener('click', function(event) {
+            modalTitle.innerHTML = list[i].innerHTML;
+    });
+}
+
+//MODAL: adjust price based on selected sizes
+modalSizeSelector.addEventListener('change', () => {
+  for (let i = 0; i < cardBodies.length; i += 1) {
+    if(list[i].innerHTML === modalTitle.innerHTML) {
+      if (modalSizeSelector.options[modalSizeSelector.selectedIndex].text === "Small") {
+        modalCost.innerHTML = cakes[i].price;
+      } else if (modalSizeSelector.options[modalSizeSelector.selectedIndex].text === "Medium") {
+        modalCost.innerHTML = cakes[i].mediumPrice;
+      } else if (modalSizeSelector.options[modalSizeSelector.selectedIndex].text === "Large") {
+        modalCost.innerHTML = cakes[i].largePrice;
+      } else if (modalSizeSelector.options[modalSizeSelector.selectedIndex].text === "Extra Large") {
+        modalCost.innerHTML = cakes[i].extraLargePrice;
+      } else if (modalSizeSelector.options[modalSizeSelector.selectedIndex].text === "Gigantic") {
+        modalCost.innerHTML = cakes[i].giganticPrice;
+      }
+    }
+  }
+});
+
+//MODAL: Reset Price and Select option on click of 'continue shopping'
+continueShoppingButton.addEventListener('click', () => {
+  modalCost.innerHTML = "";
+  modalSizeSelector.selectedIndex = "Select Price";
+});
