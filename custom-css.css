@@ -62,6 +62,17 @@ ul {
   background-color: lightgrey;
 }
 
+#modalCost::before {
+  content: "$";
+}
+
+#cartPopUp {
+  display: none;
+  position: fixed;
+  top: -20px;
+  right: -470px;
+}
+
 @media (min-width: 576px){
   div .card-deck,
   div .card {

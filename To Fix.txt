@@ -7,8 +7,8 @@
 -create partial string search bar.-done.
 -make search form work across all pages. -DONE
 -make title appear after nav becomes fixed. - DONE
--add order now button functionality. - IN PROGRESS. Need to adjust price based
-	on quantity.
+-add order now button functionality. - DONE
+-using back/forward browser buttons breaks modal price functionality.
 
 ON CONQUER:
 -add scroll effects on link click.- DONE

@@ -313,7 +313,7 @@
               <option>Extra Large</option>
               <option>Gigantic</option>
             </select>
-            <select class="form-control-sm col m-1">
+            <select id="modalQuantitySelector" class="form-control-sm col m-1">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -325,8 +325,8 @@
               <option>9</option>
               <option>10</option>
             </select>
-              <span class="col m-1" placeholder="Cost" id="modalCost"></span>
-            <button type="button" class="btn btn-secondary col m-1">Add to Cart</button>
+              <span class="col m-1" placeholder="Cost" id="modalCost">0.00</span>
+            <button type="button" class="btn btn-secondary col m-1" id="addToCartButton">Add to Cart</button>
           </div><!-- end second row -->
           <button type="button" class="btn btn-secondary m-1" id="addSizes">Order Additional Sizes</button>
         </form>
@@ -335,13 +335,14 @@
         <button id="continueShoppingButton" type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
         <button type="button" class="btn btn-primary">Proceed to Check Out</button>
       </div>
+      <a id="cartPopUp" class="btn btn-primary" href="checkout.html" role="button">Added to Cart. Click here to go to Checkout</a>
     </div>
   </div>
 </div> <!-- /modal -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>

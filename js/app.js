@@ -15,15 +15,20 @@ let modalTitle = document.querySelector('#modalTitle');
 const orderNowButtons = bin.querySelectorAll('a.btn-info.float-right');
 const continueShoppingButton = document.querySelector('#continueShoppingButton');
 const closeModalButton = document.querySelector('#closeModalButton');
+const modalQuantitySelector = document.querySelector('#modalQuantitySelector');
+const orderModal = document.querySelector('#orderModal');
+const addToCartButton = document.querySelector('#addToCartButton');
+let cart = [];
+
 //add each cake property to an object and attach object to cakes array.
 for (i = 0; i < list.length; i +=1) {
   let cakesElement = {};
   cakesElement.name = list[i].innerHTML;
-  cakesElement.price = "$" + parseFloat(priceTag[i].innerHTML).toFixed(2);
-  cakesElement.mediumPrice = "$" + parseFloat(priceTag[i].innerHTML * 2).toFixed(2),
-  cakesElement.largePrice = "$" + parseFloat(priceTag[i].innerHTML * 2.9).toFixed(2),
-  cakesElement.extraLargePrice = "$" + parseFloat(priceTag[i].innerHTML * 3.8).toFixed(2),
-  cakesElement.giganticPrice = "$" + parseFloat(priceTag[i].innerHTML * 7.7).toFixed(2)
+  cakesElement.price = parseFloat(priceTag[i].innerHTML).toFixed(2);
+  cakesElement.mediumPrice = parseFloat(priceTag[i].innerHTML * 2).toFixed(2),
+  cakesElement.largePrice = parseFloat(priceTag[i].innerHTML * 2.9).toFixed(2),
+  cakesElement.extraLargePrice = parseFloat(priceTag[i].innerHTML * 3.8).toFixed(2),
+  cakesElement.giganticPrice = parseFloat(priceTag[i].innerHTML * 7.7).toFixed(2)
   cakes.push(cakesElement);
 }
 
@@ -171,19 +176,20 @@ for (let i = 0; i < cardBodies.length; i += 1) {
 }
 
 //MODAL: adjust price based on selected sizes
-modalSizeSelector.addEventListener('change', () => {
+orderModal.addEventListener('change', () => {
+  const quantity = parseFloat(modalQuantitySelector.options[modalQuantitySelector.selectedIndex].text).toFixed(2);
   for (let i = 0; i < cardBodies.length; i += 1) {
     if(list[i].innerHTML === modalTitle.innerHTML) {
       if (modalSizeSelector.options[modalSizeSelector.selectedIndex].text === "Small") {
-        modalCost.innerHTML = cakes[i].price;
+        modalCost.innerHTML = parseFloat(cakes[i].price * quantity).toFixed(2);
       } else if (modalSizeSelector.options[modalSizeSelector.selectedIndex].text === "Medium") {
-        modalCost.innerHTML = cakes[i].mediumPrice;
+        modalCost.innerHTML = parseFloat(cakes[i].mediumPrice * quantity).toFixed(2);
       } else if (modalSizeSelector.options[modalSizeSelector.selectedIndex].text === "Large") {
-        modalCost.innerHTML = cakes[i].largePrice;
+        modalCost.innerHTML = parseFloat(cakes[i].largePrice * quantity).toFixed(2);
       } else if (modalSizeSelector.options[modalSizeSelector.selectedIndex].text === "Extra Large") {
-        modalCost.innerHTML = cakes[i].extraLargePrice;
+        modalCost.innerHTML = parseFloat(cakes[i].extraLargePrice * quantity).toFixed(2);
       } else if (modalSizeSelector.options[modalSizeSelector.selectedIndex].text === "Gigantic") {
-        modalCost.innerHTML = cakes[i].giganticPrice;
+        modalCost.innerHTML = parseFloat(cakes[i].giganticPrice * quantity).toFixed(2);
       }
     }
   }
@@ -191,11 +197,23 @@ modalSizeSelector.addEventListener('change', () => {
 
 //MODAL: Reset Price and Select option on click of 'continue shopping'
 continueShoppingButton.addEventListener('click', () => {
-  modalCost.innerHTML = "";
+  modalCost.innerHTML = "0.00";
   modalSizeSelector.selectedIndex = "Select Price";
 });
 
 closeModalButton.addEventListener('click', () => {
-  modalCost.innerHTML = "";
+  modalCost.innerHTML = "0.00";
   modalSizeSelector.selectedIndex = "Select Price";
+});
+
+//MODAL: Add items to cart array object
+addToCartButton.addEventListener('click', () => {
+  let cartElement = {};
+  cartElement.name = modalTitle.innerHTML
+  cartElement.size = modalSizeSelector.options[modalSizeSelector.selectedIndex].text;
+  cartElement.quantity = modalQuantitySelector.options[modalQuantitySelector.selectedIndex].text;
+  cartElement.price = parseFloat(modalCost.innerHTML).toFixed(2);
+  cart.push(cartElement);
+  $("#cartPopUp").fadeIn('slow').delay('5000').fadeOut('slow');
+
 });
