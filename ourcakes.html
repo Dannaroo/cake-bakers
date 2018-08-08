@@ -82,7 +82,7 @@
            <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake5.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">D</h5>
+               <h5 class="card-title">Chocolate Mudcake</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
                 <a href="#" class="btn btn-info float-right" data-toggle="modal" data-target="#orderModal">Order Now</a>
                <a href="#" class="btn btn-secondary float-left disabled">10.50</a>
@@ -93,7 +93,7 @@
            <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake6.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">C</h5>
+               <h5 class="card-title">Strawberry Cheesecake</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
                 <a href="#" class="btn btn-info float-right" data-toggle="modal" data-target="#orderModal">Order Now</a>
                <a href="#" class="btn btn-secondary float-left disabled">14.10</a>
@@ -104,7 +104,7 @@
            <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake7.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title">B</h5>
+               <h5 class="card-title">Apricot Fruitcake</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
                <a href="#" class="btn btn-info float-right" data-toggle="modal" data-target="#orderModal">Order Now</a>
                <a href="#" class="btn btn-secondary float-left disabled">16.00</a>
@@ -115,7 +115,7 @@
            <div class="card mb-3 mx-0 my-2">
              <img class="card-img-top" src="img/cake8.jpg" alt="">
              <div class="card-body">
-               <h5 class="card-title"> A</h5>
+               <h5 class="card-title">Icecream Cake</h5>
                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non venenatis felis, ac pretium nisi. Vestibulum facilisis condimentum ex quis dapibus. Cras vitae auctor ex.</p>
                 <a href="#" class="btn btn-info float-right" data-toggle="modal" data-target="#orderModal">Order Now</a>
                <a href="#" class="btn btn-secondary float-left disabled">42.00</a>
@@ -304,38 +304,50 @@
             <span class="col m-1"></span>
           </div><!-- end first row -->
           <div class="row">
-            <span id="modalTitle" class="col m-2">B</span>
-            <select id="modalSizeSelector" class="form-control-sm col m-1">
-              <option>Select Price</option>
-              <option>Small</option>
-              <option>Medium</option>
-              <option>Large</option>
-              <option>Extra Large</option>
-              <option>Gigantic</option>
-            </select>
-            <select id="modalQuantitySelector" class="form-control-sm col m-1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-            </select>
+            <div class="form-group">
+              <span id="modalTitle" class="col m-2">B</span>
+            </div>
+            <div class="form-group">
+               <select id="modalSizeSelector" class="form-control-sm col m-1">
+                <option>Select Price</option>
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+                <option>Extra Large</option>
+                <option>Gigantic</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select id="modalQuantitySelector" class="form-control-sm col m-1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+            </div>
+            <div class="form-group">
               <span class="col m-1" placeholder="Cost" id="modalCost">0.00</span>
-            <button type="button" class="btn btn-secondary col m-1" id="addToCartButton">Add to Cart</button>
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-secondary col m-1" id="addToCartButton">Add to Cart</button>
+            </div>
           </div><!-- end second row -->
-          <button type="button" class="btn btn-secondary m-1" id="addSizes">Order Additional Sizes</button>
+          <div class="row ml-1">
+          <span id="sizeErrorMessage" style="display: none">Please select a size.</span>
+        </div><!-- end third row -->
         </form>
       </div>
       <div class="modal-footer">
         <button id="continueShoppingButton" type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
-        <button type="button" class="btn btn-primary">Proceed to Check Out</button>
+        <a role="button" class="btn btn-primary" href="yourcart.html">Proceed to Check Out</a>
       </div>
-      <a id="cartPopUp" class="btn btn-primary" href="checkout.html" role="button">Added to Cart. Click here to go to Checkout</a>
+      <a id="cartPopUp" class="btn btn-primary" href="yourcart.html" role="button">Added to Cart. Click here to go to Your Cart</a>
     </div>
   </div>
 </div> <!-- /modal -->

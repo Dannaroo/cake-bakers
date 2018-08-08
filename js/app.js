@@ -19,6 +19,9 @@ const modalQuantitySelector = document.querySelector('#modalQuantitySelector');
 const orderModal = document.querySelector('#orderModal');
 const addToCartButton = document.querySelector('#addToCartButton');
 let cart = [];
+const sizeErrorMessage = document.querySelector('#sizeErrorMessage');
+const tableCart = document.querySelector('#tableCart');
+const cartPopUp = document.querySelector('#cartPopUp');
 
 //add each cake property to an object and attach object to cakes array.
 for (i = 0; i < list.length; i +=1) {
@@ -205,15 +208,36 @@ closeModalButton.addEventListener('click', () => {
   modalCost.innerHTML = "0.00";
   modalSizeSelector.selectedIndex = "Select Price";
 });
-
+let tableCartElement = document.createElement('tr');
 //MODAL: Add items to cart array object
 addToCartButton.addEventListener('click', () => {
-  let cartElement = {};
-  cartElement.name = modalTitle.innerHTML
-  cartElement.size = modalSizeSelector.options[modalSizeSelector.selectedIndex].text;
-  cartElement.quantity = modalQuantitySelector.options[modalQuantitySelector.selectedIndex].text;
-  cartElement.price = parseFloat(modalCost.innerHTML).toFixed(2);
-  cart.push(cartElement);
-  $("#cartPopUp").fadeIn('slow').delay('5000').fadeOut('slow');
+  if(modalSizeSelector.options[modalSizeSelector.selectedIndex].text !== "Select Price") {
+      if(modalSizeSelector.style.border = "red 2px solid") {
+        modalSizeSelector.style.border = "";
+        sizeErrorMessage.style = "display: none";
+      }
+      let cartElement = {};
+      cartElement.name = modalTitle.innerHTML
+      cartElement.size = modalSizeSelector.options[modalSizeSelector.selectedIndex].text;
+      cartElement.quantity = modalQuantitySelector.options[modalQuantitySelector.selectedIndex].text;
+      cartElement.price = parseFloat(modalCost.innerHTML).toFixed(2);
+      cart.push(cartElement);
+      $("#cartPopUp").fadeIn('slow').delay('5000').fadeOut('slow');
+      //Add cart Array Object to cart.html
 
+      tableCartElement.innerHTML = "<th scope='row'>" + cartElement.name + "</th><td>" + cartElement.size +
+      "</td><td>" + cartElement.quantity + "</td><td>" + cartElement.price +
+      "</td><td><button type='button' class='btn btn-danger btn-sm float-right'>Remove</button></td>"
+      // tableCart.appendChild(tableCartElement);
+      console.log(tableCartElement);
+  } else {
+    modalSizeSelector.style.border = "red 2px solid";
+    sizeErrorMessage.style = "display: block; color: red";
+  }
+});
+
+//Navigate from ourcakes.html to yourcart.html taking the cart array object with you
+cartPopUp.addEventListener('click', (event) => {
+  event.preventDefault();
+  window.location.href = 'yourcart.html' + '#' + tableCartElement.innerHTML;
 });

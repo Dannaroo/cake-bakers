@@ -1,9 +1,10 @@
-h1 {
+.container h1 {
   font-family: "Book Antiqua";
   color: #f1ddcf;
   border-bottom: 1px black dashed;
   text-align: center;
-  text-shadow: black 4px 4px;
+  text-shadow: black 6px 6px;
+  font-weight: 800;
 }
 
 ul {
@@ -73,11 +74,19 @@ ul {
   right: -470px;
 }
 
+caption {
+  font-size: 1.6em;
+  font-weight: 400;
+  padding: 10px 0;
+  caption-side: top;
+}
+
 @media (min-width: 576px){
   div .card-deck,
   div .card {
     flex: 1 0 50%;
   }
+
 }
 
 @media (min-width: 992px){

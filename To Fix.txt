@@ -9,6 +9,8 @@
 -make title appear after nav becomes fixed. - DONE
 -add order now button functionality. - DONE
 -using back/forward browser buttons breaks modal price functionality.
+-fix sticky footer in yourcart.html
+-no search results? display a message!
 
 ON CONQUER:
 -add scroll effects on link click.- DONE
