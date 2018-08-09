@@ -20,8 +20,10 @@ const orderModal = document.querySelector('#orderModal');
 const addToCartButton = document.querySelector('#addToCartButton');
 let cart = [];
 const sizeErrorMessage = document.querySelector('#sizeErrorMessage');
-const tableCart = document.querySelector('#tableCart');
 const cartPopUp = document.querySelector('#cartPopUp');
+const navbarNav = document.querySelector('#navbarNav');
+const cartNavIcon = document.querySelector('#cartNavIcon');
+const yourCartLink = document.querySelectorAll('.your-cart-link');
 
 //add each cake property to an object and attach object to cakes array.
 for (i = 0; i < list.length; i +=1) {
@@ -208,14 +210,17 @@ closeModalButton.addEventListener('click', () => {
   modalCost.innerHTML = "0.00";
   modalSizeSelector.selectedIndex = "Select Price";
 });
-let tableCartElement = document.createElement('tr');
+
 //MODAL: Add items to cart array object
 addToCartButton.addEventListener('click', () => {
+  //Check if a size has been selected.
   if(modalSizeSelector.options[modalSizeSelector.selectedIndex].text !== "Select Price") {
+    //Remove previous error messages if the error has been rectified by the user
       if(modalSizeSelector.style.border = "red 2px solid") {
         modalSizeSelector.style.border = "";
         sizeErrorMessage.style = "display: none";
       }
+      //add the order details to the cart array object
       let cartElement = {};
       cartElement.name = modalTitle.innerHTML
       cartElement.size = modalSizeSelector.options[modalSizeSelector.selectedIndex].text;
@@ -223,13 +228,12 @@ addToCartButton.addEventListener('click', () => {
       cartElement.price = parseFloat(modalCost.innerHTML).toFixed(2);
       cart.push(cartElement);
       $("#cartPopUp").fadeIn('slow').delay('5000').fadeOut('slow');
-      //Add cart Array Object to cart.html
-
-      tableCartElement.innerHTML = "<th scope='row'>" + cartElement.name + "</th><td>" + cartElement.size +
-      "</td><td>" + cartElement.quantity + "</td><td>" + cartElement.price +
-      "</td><td><button type='button' class='btn btn-danger btn-sm float-right'>Remove</button></td>"
-      // tableCart.appendChild(tableCartElement);
-      console.log(tableCartElement);
+      //update the cart icon in navbar
+      if(cart) {
+        cartNavIcon.style = "display: block";
+        cartNavIcon.innerHTML = "Cart(" + cart.length + ")";
+      }
+    //if a size isnt selected. display error message.
   } else {
     modalSizeSelector.style.border = "red 2px solid";
     sizeErrorMessage.style = "display: block; color: red";
@@ -237,7 +241,11 @@ addToCartButton.addEventListener('click', () => {
 });
 
 //Navigate from ourcakes.html to yourcart.html taking the cart array object with you
-cartPopUp.addEventListener('click', (event) => {
-  event.preventDefault();
-  window.location.href = 'yourcart.html' + '#' + tableCartElement.innerHTML;
-});
+for(i = 0; i < yourCartLink.length; i += 1) {
+  yourCartLink[i].addEventListener('click', (event) => {
+    event.preventDefault();
+    window.location.href = 'yourcart.html' + '#' + JSON.stringify(cart);
+  });
+}
+
+//Create a cart icon in the Navbar if there are items added to cart.
