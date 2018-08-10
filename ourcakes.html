@@ -12,6 +12,8 @@
 
   </head>
   <body>
+    <!-- Wrapper for Sticky Footer  -->
+    <div class="wrapper">
     <!-- Header -->
     <div class="jumbotron jumbotron-fluid">
       <div class="container mx-auto" style="width: 640px;">
@@ -32,7 +34,7 @@
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#top.html">Our Cakes <span class="sr-only">(current)</span></a>
+            <a class="nav-link active" href="#top.html">Our Cakes<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="customcakes.html">Custom Cakes</a>
@@ -71,10 +73,12 @@
          <button class="btn btn-info m-1" type="submit" id="clear">Clear Search</button>
       </div>
      </div>
-     <!-- <button id="alphBnt">Sort A-Z</button>
-     <button id="reverseAlphBnt">Sort Z-A</button> -->
      <!-- /Sort Form -->
-
+     <!-- Search Result Message -->
+     <div class="container" >
+       <span id="searchResultMessage" style="display: none"></span>
+     </div>
+     <!-- /Search Result Message -->
 
      <!-- List -->
      <div class="container" id="bin">
@@ -259,7 +263,7 @@
      </div><!-- /List -->
 
    </main>
-
+  </div><!-- /Sticky Footer Wrapper -->
    <!-- footer -->
    <footer class="footer">
      <div class="row py-3">
@@ -280,14 +284,14 @@
          </ul>
        </div>
        <div class="col-md text-md-right">
-         <small>&copy; 2018 Cake Bakers &amp; <a href="../myportfolio/index.html" target="_blank">Danny Ward Web Development</a></small>
+         <small class="mr-2">&copy; 2018 Cake Bakers &amp; <a href="../myportfolio/index.html" target="_blank">Danny Ward Web Development</a></small>
        </div>
      </div>
    </footer><!-- /footer -->
 
    <!-- Modal -->
 <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="order details" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">Order Details</h5>
@@ -305,21 +309,16 @@
             <span class="col m-1"></span>
           </div><!-- end first row -->
           <div class="row">
-            <div class="form-group">
               <span id="modalTitle" class="col m-2">B</span>
-            </div>
-            <div class="form-group">
-               <select id="modalSizeSelector" class="form-control-sm col m-1">
-                <option>Select Price</option>
+               <select id="modalSizeSelector" class="form-control col m-1">
+                <option>Select Size</option>
                 <option>Small</option>
                 <option>Medium</option>
                 <option>Large</option>
                 <option>Extra Large</option>
                 <option>Gigantic</option>
               </select>
-            </div>
-            <div class="form-group">
-              <select id="modalQuantitySelector" class="form-control-sm col m-1">
+              <select id="modalQuantitySelector" class="form-control col m-1">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -331,13 +330,8 @@
                 <option>9</option>
                 <option>10</option>
               </select>
-            </div>
-            <div class="form-group">
               <span class="col m-1" placeholder="Cost" id="modalCost">0.00</span>
-            </div>
-            <div class="form-group">
               <button type="button" class="btn btn-secondary col m-1" id="addToCartButton">Add to Cart</button>
-            </div>
           </div><!-- end second row -->
           <div class="row ml-1">
           <span id="sizeErrorMessage" style="display: none">Please select a size.</span>

@@ -12,6 +12,8 @@
 
   </head>
   <body>
+    <!-- Wrapper for Sticky Footer  -->
+    <div class="wrapper">
     <!-- Header -->
     <div class="jumbotron jumbotron-fluid">
       <div class="container mx-auto" style="width: 640px;">
@@ -28,23 +30,23 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#index.html">Home <span class="sr-only">(current)</span></a>
+          <li class="your-cart-link nav-item">
+            <a class="nav-link" href="#index.html">Home</a>
           </li>
-          <li class="nav-item">
+          <li class="your-cart-link nav-item">
             <a class="nav-link" href="ourcakes.html">Our Cakes</a>
           </li>
-          <li class="nav-item">
+          <li class="your-cart-link nav-item">
             <a class="nav-link" href="customcakes.html">Custom Cakes</a>
           </li>
-          <li class="nav-item">
+          <li class="your-cart-link nav-item">
             <a class="nav-link active" href="#top">About Us</a>
           </li>
-          <li class="nav-item">
+          <li class="your-cart-link nav-item">
             <a class="nav-link" href="contactus.html">Contact Us</a>
           </li>
         </ul>
-        <a id="cartNavIcon" role="button" class="your-cart-link btn btn-outline-secondary btn-sm mr-2" href="yourcart.html" style="display: none">Cart(</a>
+        <a id="cartNavIcon" role="button" class="active your-cart-link your-cart-link btn btn-outline-secondary btn-sm mr-2" href="yourcart.html" style="display: none">Cart(</a>
         <form class="form-inline my-2 my-lg-0" action="ourcakes.html#sortform">
           <input class="form-control mr-sm-2" type="text" placeholder="Find A Cake" aria-label="Search" name="alternateSearchTerm">
           <input class="btn btn-outline-info my-2 my-sm-0" type="submit" value="Go">
@@ -67,27 +69,13 @@
           </thead>
           <tbody id="tableCart">
             <tr>
-              <th scope="row">Cake 1</th>
-              <td>Small</td>
-              <td>1</td>
-              <td>$100.00</td>
-              <td><button type="button" class="removeProductButton btn btn-danger btn-sm float-right">Remove</button></td>
-            </tr>
-            <tr>
-              <th scope="row">Cake 2</th>
-              <td>Large</td>
-              <td>3</td>
-              <td>$50.60</td>
-              <td><button type="button" class="removeProductButton btn btn-danger btn-sm float-right">Remove</button></td>
-            </tr>
-            <tr>
               <td colspan="5"></td>
             </tr>
             <tr class="table-danger font-weight-bold">
               <th scope="row"><a role="button" class="btn btn-sm btn-secondary" href="ourcakes.html">&#x0003C;&#x0003C;&#x0003C; Continue Shopping</a></th>
               <td></td>
               <td>Total Cost:</td>
-              <td>$350.00</td>
+              <td id="totalCost"></td>
               <td><a role="button" class="btn btn-info">Checkout Now &#x0003E;&#x0003E;&#x0003E;</a></td>
             </tr>
           </tbody>
@@ -97,7 +85,7 @@
      </div>
 
    </main>
-
+ </div><!-- /Sticky Footer Wrapper -->
   <!-- footer -->
   <footer class="footer">
     <div class="row py-3">
@@ -118,7 +106,7 @@
         </ul>
       </div>
       <div class="col-md text-md-right">
-        <small>&copy; 2018 Cake Bakers &amp; <a href="../myportfolio/index.html" target="_blank">Danny Ward Web Development</a></small>
+        <small class="mr-2">&copy; 2018 Cake Bakers &amp; <a href="../myportfolio/index.html" target="_blank">Danny Ward Web Development</a></small>
       </div>
     </div>
   </footer><!-- /footer -->
@@ -128,44 +116,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <script>
-
-      //Select div to input new code
-      const tableCart = document.querySelector('#tableCart');
-      //find the array object passed as a string in the URL and first decode ''%20's and then convert it from JSON to JS object
-      const cart = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
-
-      //function will find the index of the cart array object to be removeDollarSign
-
-      function findArrayIndex(name) {
-        return
-      }
-      //For every object in the cart array: Create the tr element to be added to the table div
-      for(i = 0; i < cart.length; i += 1) {
-        let tableCartElement = document.createElement('tr');
-        //concat the element
-        tableCartElement.innerHTML += "<th scope='row'>" + cart[i].name + "</th><td>" + cart[i].size +
-        "</td><td>" + cart[i].quantity + "</td><td>" + cart[i].price +
-        "</td><td><button type='button' class='removeProductButton btn btn-danger btn-sm float-right'>Remove</button></td>";
-        //append new element to existing table DIV
-        tableCart.insertBefore(tableCartElement, tableCart.lastElementChild.previousElementSibling);
-      }
-      //get all the remove buttons.
-      const removeProductButtons = document.querySelectorAll(".removeProductButton");
-      //display the cart icon
-      cartNavIcon.style = "display: block";
-      cartNavIcon.innerHTML = "Cart(" + cart.length + ")";
-      //when a remove button is clicked. remove the row from the table and from the array object.
-      for(i = 0; i < removeProductButtons.length; i += 1 ) {
-        removeProductButtons[i].addEventListener('click', (event) => {
-          const productRow = event.target.parentNode.parentNode;
-          tableCart.removeChild(productRow);
-          //remove the matching name of product from the cart array by finding the index and comparing to name of table element
-          cart.splice(cart.findIndex(i => i.name === event.target.parentNode.parentNode.firstElementChild.innerHTML),1);
-          //adjust the cart icon to display accurate cart array object length
-          cartNavIcon.innerHTML = "Cart(" + cart.length + ")";
-        });
-      }
-    </script>
+    <script src="js/your-cart-app.js"></script>
   </body>
 </html>

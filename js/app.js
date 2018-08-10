@@ -24,6 +24,7 @@ const cartPopUp = document.querySelector('#cartPopUp');
 const navbarNav = document.querySelector('#navbarNav');
 const cartNavIcon = document.querySelector('#cartNavIcon');
 const yourCartLink = document.querySelectorAll('.your-cart-link');
+const searchResultMessage = document.querySelector('#searchResultMessage');
 
 //add each cake property to an object and attach object to cakes array.
 for (i = 0; i < list.length; i +=1) {
@@ -124,13 +125,26 @@ $('#priceDescend').on('click', function () {
 
 //Operate search bar function ON-PAGE
 submitButton.addEventListener('click', () => {
-  for (i = 0; i < list.length; i += 1) {
+  let blockCount = 0;
+  for (let i = 0; i < list.length; i += 1) {
     let title = list[i].innerHTML;
     if ( title.toLowerCase().includes(search.value.toLowerCase()) ) {
       list[i].parentNode.parentNode.parentNode.style.display="block";
+      blockCount += 1;
     } else {
       list[i].parentNode.parentNode.parentNode.style.display="none";
     }
+  }
+  if (blockCount > 0) {
+    searchResultMessage.style = "display: block";
+    searchResultMessage.innerHTML = "Your search of '" + search.value.toLowerCase()
+    + "' returned " + blockCount + " results."
+    searchResultMessage.className = "mb-2 pb-2";
+  } else {
+    searchResultMessage.style = "display: block";
+    searchResultMessage.innerHTML = "Sorry, your search of '" + search.value.toLowerCase()
+    + "' returned no results. Please try a broader search term."
+    searchResultMessage.className = "mb-5 pb-5";
   }
   search.value = "";
 });
@@ -138,24 +152,39 @@ submitButton.addEventListener('click', () => {
 //Operate search bar function OFF-PAGE
 const alternateSearchTerm = location.search.substr(location.search.indexOf("=")+1);
 if (alternateSearchTerm) {
-  for (i = 0; i < list.length; i += 1) {
+  let blockCount = 0;
+  for (let i = 0; i < list.length; i += 1) {
     let title = list[i].innerHTML;
     if ( title.toLowerCase().includes(alternateSearchTerm.toLowerCase()) ) {
       list[i].parentNode.parentNode.parentNode.style.display="block";
+      blockCount += 1;
     } else {
       list[i].parentNode.parentNode.parentNode.style.display="none";
     }
   }
   search.value = alternateSearchTerm;
+  if (blockCount > 0) {
+    searchResultMessage.style = "display: block";
+    searchResultMessage.innerHTML = "Your search of '" + search.value.toLowerCase()
+    + "' returned " + blockCount + " results."
+    searchResultMessage.className = "mb-2 pb-2";
+  } else {
+    searchResultMessage.style = "display: block";
+    searchResultMessage.innerHTML = "Sorry, your search of '" + search.value.toLowerCase()
+    + "' returned no results. Please try a broader search term."
+    searchResultMessage.className = "mb-5 pb-5";
+  }
+  search.value = "";
 };
 
 //Operate clear search button
 clearButton.addEventListener('click', () => {
-  for (i = 0; i < list.length; i += 1) {
+  for (let i = 0; i < list.length; i += 1) {
     if (list[i].parentNode.parentNode.parentNode.style.display="none") {
       list[i].parentNode.parentNode.parentNode.style.display="block";
     }
   }
+  searchResultMessage.style = "display: none";
 });
 
 //Scrolling past Jumbotron adds title to navbar in WIDE SCREEN.
@@ -214,7 +243,7 @@ closeModalButton.addEventListener('click', () => {
 //MODAL: Add items to cart array object
 addToCartButton.addEventListener('click', () => {
   //Check if a size has been selected.
-  if(modalSizeSelector.options[modalSizeSelector.selectedIndex].text !== "Select Price") {
+  if(modalSizeSelector.options[modalSizeSelector.selectedIndex].text !== "Select Size") {
     //Remove previous error messages if the error has been rectified by the user
       if(modalSizeSelector.style.border = "red 2px solid") {
         modalSizeSelector.style.border = "";
@@ -229,10 +258,9 @@ addToCartButton.addEventListener('click', () => {
       cart.push(cartElement);
       $("#cartPopUp").fadeIn('slow').delay('5000').fadeOut('slow');
       //update the cart icon in navbar
-      if(cart) {
-        cartNavIcon.style = "display: block";
-        cartNavIcon.innerHTML = "Cart(" + cart.length + ")";
-      }
+      cartNavIcon.style = "display: block";
+      cartNavIcon.innerHTML = "Cart(" + cart.length + ")";
+
     //if a size isnt selected. display error message.
   } else {
     modalSizeSelector.style.border = "red 2px solid";
@@ -241,7 +269,7 @@ addToCartButton.addEventListener('click', () => {
 });
 
 //Navigate from ourcakes.html to yourcart.html taking the cart array object with you
-for(i = 0; i < yourCartLink.length; i += 1) {
+for(let i = 0; i < yourCartLink.length; i += 1) {
   yourCartLink[i].addEventListener('click', (event) => {
     event.preventDefault();
     window.location.href = 'yourcart.html' + '#' + JSON.stringify(cart);
