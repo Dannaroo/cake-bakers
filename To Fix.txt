@@ -10,8 +10,9 @@
 -add order now button functionality. - DONE
 -using back/forward browser buttons breaks modal price functionality.
 -fix sticky footer in yourcart.html -DONE
--no search results? display a message!
--maintain cart array objects throughout html pages.
+-no search results? display a message! - DONE
+-maintain cart array objects throughout html pages. **LOCAL STORAGE**
+-index 'order now' buttons require functionality.
 
 ON CONQUER:
 -add scroll effects on link click.- DONE
