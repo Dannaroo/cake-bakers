@@ -3,7 +3,30 @@ const totalCost = document.querySelector('#totalCost');
 //Select div to input new code
 const tableCart = document.querySelector('#tableCart');
 //find the array object passed as a string in the URL and first decode ''%20's and then convert it from JSON to JS object
-const cart = JSON.parse(decodeURIComponent(window.location.hash.substring(1)));
+const cart = JSON.parse(localStorage.localStorageCart);
+
+
+//remove any unwanted entries from localStorage when the delete button is clicked.
+// function removeCartItem(name) {
+//   for (i = 0; i < cart.length; i += 1) {
+//     if (name === cart[i].name) {
+// //       //remove the matching array element
+//       cart.splice(i,1);
+// //       //reattach the array to localStorage
+//       localStorage.setItem('localStorageCart', JSON.stringify(cart));
+//     }
+//   }
+// }
+
+//fetch the movie list from local storage and append to the Ul.
+// function localStorageList() {
+//   const movieList = getMovieList();
+//   if(movieList.length > 0) {
+//     for(i = 0; i < movieList.length; i += 1) {
+//       listUl.innerHTML += movieList[i];
+//     }
+//   }
+// }
 
 //update the total cost every time an element is added/removed.
 function totalCostCalc (cart) {
@@ -43,6 +66,7 @@ for(let i = 0; i < removeProductButtons.length; i += 1 ) {
     //compares selected row with the cart objects matching both NAME and PRICE so that when there are duplicate product
     //names in the cart, the correct one is removed from the cart array.
     cart.splice(cart.findIndex(i => i.name === event.target.parentNode.parentNode.firstElementChild.innerHTML && i.price === event.target.parentNode.parentNode.lastElementChild.previousElementSibling.innerHTML),1);
+    localStorage.setItem('localStorageCart', JSON.stringify(cart));
     //adjust the cart icon to display accurate cart array object length
     cartNavIcon.innerHTML = "Cart(" + cart.length + ")";
     //Display a message if the cart is empty
@@ -56,12 +80,3 @@ for(let i = 0; i < removeProductButtons.length; i += 1 ) {
   });
 
 }
-  //IN PROGRESS: move the cart object around the page so you can always link back to your cart from navbar.
-  for(i = 0; i < yourCartLink.length; i += 1) {
-    yourCartLink[i].addEventListener('click', (event) => {
-      event.preventDefault();
-      const one = event.target.getAttribute('href');
-      console.log(one);
-      window.location.href = one + '#' + JSON.stringify(cart);
-    });
-  }

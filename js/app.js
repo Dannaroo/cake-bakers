@@ -38,6 +38,58 @@ for (i = 0; i < list.length; i +=1) {
   cakes.push(cakesElement);
 }
 
+///////////////////////////////////////////////////////////////////////////
+/////    LOCAL STORAGE FUNCTIONS   ////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+//make sure the browser supports localStorage
+function supportsLocalStorage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch(e) {
+    return false;
+  }
+}
+
+//Fetch the localStorageCart from localStorage
+function getLocalStorageCart() {
+  const localStorageCart = localStorage.getItem('localStorageCart');
+  if(localStorageCart) {
+    return JSON.parse(localStorageCart);
+  } else {
+    return [];
+  }
+}
+
+//save an entry to localStorage when the add to cart button is clicked
+function addToLocalStorageCart(str) {
+  const localStorageCart = getLocalStorageCart();
+  // str = "<li>" + str + "</li>";
+  localStorageCart.push(str);
+  localStorage.setItem('localStorageCart', JSON.stringify(localStorageCart));
+  return localStorageCart;
+}
+
+
+// initiate localStorageCart
+
+window.onload = function () {
+  if(supportsLocalStorage) {
+    cart = getLocalStorageCart();
+    //Create a cart icon in the Navbar if there are items added to cart.
+    if(cart.length > 0) {
+      cartNavIcon.style = "display: block";
+      cartNavIcon.innerHTML = "Cart(" + cart.length + ")";
+    }
+  } else {
+    console.log('error. browser does not support local storage');
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
 //Remove dollar sign for sorting purposes
 function removeDollarSign(a) {
   let removeDollarSign = a.querySelector("span");
@@ -255,7 +307,7 @@ addToCartButton.addEventListener('click', () => {
       cartElement.size = modalSizeSelector.options[modalSizeSelector.selectedIndex].text;
       cartElement.quantity = modalQuantitySelector.options[modalQuantitySelector.selectedIndex].text;
       cartElement.price = parseFloat(modalCost.innerHTML).toFixed(2);
-      cart.push(cartElement);
+      cart = addToLocalStorageCart(cartElement);
       $("#cartPopUp").fadeIn('slow').delay('5000').fadeOut('slow');
       //update the cart icon in navbar
       cartNavIcon.style = "display: block";
@@ -263,17 +315,7 @@ addToCartButton.addEventListener('click', () => {
 
     //if a size isnt selected. display error message.
   } else {
-    modalSizeSelector.style.border = "red 2px solid";
+    modalSizeSelector.style.border = "red solid";
     sizeErrorMessage.style = "display: block; color: red";
   }
 });
-
-//Navigate from ourcakes.html to yourcart.html taking the cart array object with you
-for(let i = 0; i < yourCartLink.length; i += 1) {
-  yourCartLink[i].addEventListener('click', (event) => {
-    event.preventDefault();
-    window.location.href = 'yourcart.html' + '#' + JSON.stringify(cart);
-  });
-}
-
-//Create a cart icon in the Navbar if there are items added to cart.

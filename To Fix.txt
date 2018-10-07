@@ -11,15 +11,6 @@
 -using back/forward browser buttons breaks modal price functionality.
 -fix sticky footer in yourcart.html -DONE
 -no search results? display a message! - DONE
--maintain cart array objects throughout html pages. **LOCAL STORAGE**
--index 'order now' buttons require functionality.
-
-ON CONQUER:
--add scroll effects on link click.- DONE
--add fade in and out highlight on mouseover of links
-- add fade in and out of return to top arrow. -DONE
--navbar links different sizes
--navbar button spacing
--return to top arrow fades in/out in wrong spot. -CHECK DIV TAGS ARE IN THE RIGHT SPOT
--highlight nav links based on which section of page you are on.-DONE
--on navlink click. navbar link does not stay highlighted.
+-maintain cart array objects throughout html pages. **LOCAL STORAGE**-DONE
+-index 'order now' buttons require functionality.- DONE
+-adjust quantity in cart.

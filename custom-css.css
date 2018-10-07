@@ -59,10 +59,6 @@ ul {
   box-shadow: 2px 2px 5px darkgrey;
 }
 
-.footer {
-  background-color: lightgrey;
-}
-
 #modalCost::before,
 #totalCost::before,
 .tableRowCost::before {
@@ -96,6 +92,7 @@ body {
 }
 .footer {
   flex-shrink: 0;
+  background-color: lightgrey;
 }
 /* End Sticky Footer */
 

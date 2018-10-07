@@ -46,6 +46,7 @@
             <a class="nav-link" href="contactus.html">Contact Us</a>
           </li>
         </ul>
+        <a id="cartNavIcon" role="button" class="your-cart-link btn btn-outline-secondary btn-sm mr-2" href="yourcart.html" style="display: none">Cart(</a>
         <form class="form-inline my-2 my-lg-0" action="ourcakes.html#sortform">
           <input class="form-control mr-sm-2" type="text" placeholder="Find A Cake" aria-label="Search" name="alternateSearchTerm">
           <input class="btn btn-outline-info my-2 my-sm-0" type="submit" value="Go">
@@ -262,11 +263,69 @@
         </div>
       </div>
     </footer><!-- /footer -->
+    <!-- Modal -->
+ <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="order details" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalCenterTitle">Order Details</h5>
+         <button id="closeModalButton" type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <form>
+           <div class="row">
+             <span class="col m-1">Product</span>
+             <span class="col m-1">Size</span>
+             <span class="col m-1">Quantity</span>
+             <span class="col m-1">Cost</span>
+             <span class="col m-1"></span>
+           </div><!-- end first row -->
+           <div class="row">
+               <span id="modalTitle" class="col m-2">B</span>
+                <select id="modalSizeSelector" class="form-control col m-1">
+                 <option>Select Size</option>
+                 <option>Small</option>
+                 <option>Medium</option>
+                 <option>Large</option>
+                 <option>Extra Large</option>
+                 <option>Gigantic</option>
+               </select>
+               <select id="modalQuantitySelector" class="form-control col m-1">
+                 <option>1</option>
+                 <option>2</option>
+                 <option>3</option>
+                 <option>4</option>
+                 <option>5</option>
+                 <option>6</option>
+                 <option>7</option>
+                 <option>8</option>
+                 <option>9</option>
+                 <option>10</option>
+               </select>
+               <span class="col m-1" placeholder="Cost" id="modalCost">0.00</span>
+               <button type="button" class="btn btn-secondary col m-1" id="addToCartButton">Add to Cart</button>
+           </div><!-- end second row -->
+           <div class="row ml-1">
+           <span id="sizeErrorMessage" style="display: none">Please select a size.</span>
+         </div><!-- end third row -->
+         </form>
+       </div>
+       <div class="modal-footer">
+         <button id="continueShoppingButton" type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+         <a role="button" class="btn btn-primary" href="yourcart.html">Proceed to Check Out</a>
+       </div>
+       <a id="cartPopUp" class="your-cart-link btn btn-primary" href="yourcart.html" role="button">Added to Cart. Click here to go to Your Cart</a>
+     </div>
+   </div>
+ </div> <!-- /modal -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="index-app.js"></script>
   </body>
 </html>
