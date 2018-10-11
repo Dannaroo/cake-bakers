@@ -79,6 +79,10 @@ caption {
   caption-side: top;
 }
 
+.cartQuantityInput {
+  max-width: 3rem;
+}
+
 /*Sticky Footer*/
 html, body {
   height: 100%;

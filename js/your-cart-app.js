@@ -5,29 +5,6 @@ const tableCart = document.querySelector('#tableCart');
 //find the array object passed as a string in the URL and first decode ''%20's and then convert it from JSON to JS object
 const cart = JSON.parse(localStorage.localStorageCart);
 
-
-//remove any unwanted entries from localStorage when the delete button is clicked.
-// function removeCartItem(name) {
-//   for (i = 0; i < cart.length; i += 1) {
-//     if (name === cart[i].name) {
-// //       //remove the matching array element
-//       cart.splice(i,1);
-// //       //reattach the array to localStorage
-//       localStorage.setItem('localStorageCart', JSON.stringify(cart));
-//     }
-//   }
-// }
-
-//fetch the movie list from local storage and append to the Ul.
-// function localStorageList() {
-//   const movieList = getMovieList();
-//   if(movieList.length > 0) {
-//     for(i = 0; i < movieList.length; i += 1) {
-//       listUl.innerHTML += movieList[i];
-//     }
-//   }
-// }
-
 //update the total cost every time an element is added/removed.
 function totalCostCalc (cart) {
   let buildingCost = 0;
@@ -44,7 +21,7 @@ for(let i = 0; i < cart.length; i += 1) {
   let tableCartElement = document.createElement('tr');
   //concat the element
   tableCartElement.innerHTML += "<th scope='row'>" + cart[i].name + "</th><td>" + cart[i].size +
-  "</td><td>" + cart[i].quantity + "</td><td class='tableRowCost'>" + cart[i].price +
+  "</td><td><input type='text' aria-label='quantity' class='cartQuantityInput' value=" + cart[i].quantity + "></td><td class='tableRowCost'>" + cart[i].price +
   "</td><td><button type='button' class='removeProductButton btn btn-danger btn-sm float-right'>Remove</button></td>";
   //append new element to existing table DIV
   tableCart.insertBefore(tableCartElement, tableCart.lastElementChild.previousElementSibling);
@@ -80,3 +57,11 @@ for(let i = 0; i < removeProductButtons.length; i += 1 ) {
   });
 
 }
+const cartQuantityInput = document.querySelectorAll('.cartQuantityInput');
+  // Adjust the quantity of cart items
+  for(let i = 0; i < cartQuantityInput.length; i += 1) {
+    cartQuantityInput[i].addEventListener('input', (e) => {
+      console.log(e, ':', e.target);
+      cartElement.quantity = modalQuantitySelector.options[modalQuantitySelector.selectedIndex].text;
+    });
+  }

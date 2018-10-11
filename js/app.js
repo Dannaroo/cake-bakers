@@ -25,6 +25,7 @@ const navbarNav = document.querySelector('#navbarNav');
 const cartNavIcon = document.querySelector('#cartNavIcon');
 const yourCartLink = document.querySelectorAll('.your-cart-link');
 const searchResultMessage = document.querySelector('#searchResultMessage');
+const proceedToCheckOutButton = document.querySelector('#proceedToCheckOutButton');
 
 //add each cake property to an object and attach object to cakes array.
 for (i = 0; i < list.length; i +=1) {
@@ -312,6 +313,9 @@ addToCartButton.addEventListener('click', () => {
       //update the cart icon in navbar
       cartNavIcon.style = "display: block";
       cartNavIcon.innerHTML = "Cart(" + cart.length + ")";
+      //reset the modal product info.
+      modalSizeSelector.selectedIndex = 0;
+      modalQuantitySelector.selectedIndex = 0;
 
     //if a size isnt selected. display error message.
   } else {
