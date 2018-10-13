@@ -308,6 +308,7 @@ addToCartButton.addEventListener('click', () => {
       cartElement.size = modalSizeSelector.options[modalSizeSelector.selectedIndex].text;
       cartElement.quantity = modalQuantitySelector.options[modalQuantitySelector.selectedIndex].text;
       cartElement.price = parseFloat(modalCost.innerHTML).toFixed(2);
+      cartElement.unitPrice = cartElement.price / cartElement.quantity;
       cart = addToLocalStorageCart(cartElement);
       $("#cartPopUp").fadeIn('slow').delay('5000').fadeOut('slow');
       //update the cart icon in navbar

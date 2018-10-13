@@ -13,4 +13,5 @@
 -no search results? display a message! - DONE
 -maintain cart array objects throughout html pages. **LOCAL STORAGE**-DONE
 -index 'order now' buttons require functionality.- DONE
--adjust quantity in cart.
+-adjust quantity in cart.-DONE
+-adjust size in cart.

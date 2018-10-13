@@ -5,6 +5,18 @@ const tableCart = document.querySelector('#tableCart');
 //find the array object passed as a string in the URL and first decode ''%20's and then convert it from JSON to JS object
 const cart = JSON.parse(localStorage.localStorageCart);
 
+// initialise price values on first load
+updateLocalStorageCart(cart);
+
+// update local Storage when quantities are updated.
+function updateLocalStorageCart(cart) {
+  // update cart prices based on quantities
+  for(i = 0; i < cart.length; i += 1) {
+    cart[i].price = parseFloat(cart[i].unitPrice * cart[i].quantity).toFixed(2);
+  }
+  localStorage.setItem('localStorageCart', JSON.stringify(cart));
+}
+
 //update the total cost every time an element is added/removed.
 function totalCostCalc (cart) {
   let buildingCost = 0;
@@ -21,7 +33,7 @@ for(let i = 0; i < cart.length; i += 1) {
   let tableCartElement = document.createElement('tr');
   //concat the element
   tableCartElement.innerHTML += "<th scope='row'>" + cart[i].name + "</th><td>" + cart[i].size +
-  "</td><td><input type='text' aria-label='quantity' class='cartQuantityInput' value=" + cart[i].quantity + "></td><td class='tableRowCost'>" + cart[i].price +
+  "</td><td><input type='text' aria-label='quantity' class='cartQuantityInput' value=" + cart[i].quantity + "></td><td></td><td class='tableRowCost'>" + cart[i].price +
   "</td><td><button type='button' class='removeProductButton btn btn-danger btn-sm float-right'>Remove</button></td>";
   //append new element to existing table DIV
   tableCart.insertBefore(tableCartElement, tableCart.lastElementChild.previousElementSibling);
@@ -57,11 +69,20 @@ for(let i = 0; i < removeProductButtons.length; i += 1 ) {
   });
 
 }
+
+//UPDATE QUANTITIES
+const updateQuantityButton = document.querySelector('.updateQuantityButton');
 const cartQuantityInput = document.querySelectorAll('.cartQuantityInput');
+
+updateQuantityButton.addEventListener('click', () => {
   // Adjust the quantity of cart items
   for(let i = 0; i < cartQuantityInput.length; i += 1) {
-    cartQuantityInput[i].addEventListener('input', (e) => {
-      console.log(e, ':', e.target);
-      cartElement.quantity = modalQuantitySelector.options[modalQuantitySelector.selectedIndex].text;
-    });
+    const newQuantity = cartQuantityInput[i].value;
+    const oldQuantity = cart[i].quantity;
+    if(newQuantity !== oldQuantity) {
+      cart[i].quantity = newQuantity;
+    }
   }
+  updateLocalStorageCart(cart);
+  window.href = location.reload();
+});
